@@ -5,5 +5,5 @@ public abstract class Account {
     double interestRate;
     double amount;
 
-    abstract double calculateInterest();
+    abstract double calculateInterest() throws InvalidInputException;
 }
