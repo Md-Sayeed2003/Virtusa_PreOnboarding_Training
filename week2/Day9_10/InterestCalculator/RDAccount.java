@@ -4,10 +4,18 @@ public class RDAccount extends Account {
 
     double interestRate;
     double amount;
+    double monthlyAmount;
     int noOfMonths;
     int ageOfACHolder;
 
-    public RDAccount(double amount, int noOfMonths, int ageOfACHolder) {
+    public RDAccount(double amount, int noOfMonths, int ageOfACHolder) throws InvalidInputException {
+
+        if(amount < 0) throw new InvalidInputException("Invalid Amount. Please enter non-negative values.");
+
+        if(noOfMonths < 0) throw  new InvalidInputException("Invalid Number of months. Please enter non-negative values.");
+
+        if(ageOfACHolder < 0) throw new InvalidInputException("Invalid Age of Account Holder. Please enter non-negative values.");
+
         this.amount = amount;
         this.noOfMonths = noOfMonths;
         this.ageOfACHolder = ageOfACHolder;
