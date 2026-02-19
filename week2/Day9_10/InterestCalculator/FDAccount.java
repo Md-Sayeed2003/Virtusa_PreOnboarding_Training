@@ -7,7 +7,14 @@ public class FDAccount extends Account {
     int noOfDays;
     int ageOfACHolder;
 
-    public FDAccount(double amount, int noOfDays, int ageOfACHolder) {
+    public FDAccount(double amount, int noOfDays, int ageOfACHolder) throws InvalidInputException{
+
+        if(amount < 0) throw new InvalidInputException("Invalid Amount. Please enter non-negative values.");
+
+        if(noOfDays < 0) throw  new InvalidInputException("Invalid Number of days. Please enter non-negative values.");
+
+        if(ageOfACHolder < 0) throw new InvalidInputException("Invalid Age of Account Holder. Please enter non-negative values.");
+
         this.amount = amount;
         this.noOfDays = noOfDays;
         this.ageOfACHolder = ageOfACHolder;
@@ -36,7 +43,7 @@ public class FDAccount extends Account {
 
         }else {
 
-            if (ageOfACHolder < 60){
+            if (ageOfACHolder > 60){
 
                 if(noOfDays < 7){
                     interestRate = 0.0;
